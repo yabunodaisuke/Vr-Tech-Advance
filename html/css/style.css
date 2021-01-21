@@ -1,0 +1,347 @@
+/* ここから下に記載していく */
+*
+   ul {
+     list-style:none;
+
+   }
+   
+   div {
+     padding:  30px;
+   }
+   .header__flex {
+     display: flex;
+     height:60px;
+     /* align-items: center; */
+     /* text-align: center; */
+   }
+   .header__flex nav {
+     margin-left: auto;
+     size: 30px;
+   }
+   .header__flex ul {
+     display: flex;
+     font-size: 20px;
+     
+   }
+   .header__flex ul li {
+    margin-top: 50px;
+     margin-left: 50px;
+     margin-bottom: 50px;
+     
+   }
+   .mainvisual {
+       width: 1300px;
+       height: 600px;
+       color: white;
+      background:Url("vr.jpeg") no-repeat center center; 
+      background-size: cover;  
+      margin-top: 50px;
+      margin-left: 40px;
+     
+   }
+   .mainvisual P {
+       text-align: right;
+       padding-top: 90px;
+       font-size: 30px;
+   }
+   .mainvisual h1 {
+     font-size: 40px;
+     text-align: left;
+     padding-top: 100px;
+   }
+   .content h1 {
+       color: #ffd61a ;
+       text-align: center;
+       margin-top: 60px;
+       margin-bottom: 30px;
+       font-size: 24px;
+   }
+  .content h2 {
+       text-align: center;
+       padding-bottom: 60px;
+       font-size: 18px;
+   }
+   .content h3 {
+       text-align: center;
+       padding-bottom: 40px;
+       font-size: 16px;
+   } */
+   .content h4 {
+       text-align: center;
+       padding-bottom: 40px;
+      
+   }
+  
+   .content h5 {
+       text-align: center;
+       padding-bottom: 40px;
+       font-size: 16px;
+
+   }
+   .content h6 {
+       text-align: center;
+       padding-bottom: 40px;
+       font-size: 16px;
+   }
+    .content1 {
+       display: flex;
+       width: 1200px;
+   }
+   .content1 img {
+     width: 300px;
+     height: 300px;
+   }
+   .content2 {
+    width: 1200px;
+    height: 295px;
+    display: flex;
+    justify-content: center;
+}
+  .pict img {
+    padding-top: 60px;
+    width: 350px;
+    height: 285px;
+} 
+  .content5 h4 {
+    text-align: center;
+    color: #ffd61a;
+    margin-top: 100px;
+    font-size: 20px;
+}
+  .content5 p {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    font-size: 30px;
+  }
+  /* 2枚目の画像 （index.html)*/
+  .content6 {
+    display: flex;
+    justify-content: center;
+}
+
+.content6 .item {
+    flex: none;
+    text-align: center;
+}
+
+.content6 img {
+    width: 300px;
+    height: 200px;
+    margin-right: 30px;
+    transform: scale(1);
+    transition: .3s ease-in-out;
+}
+
+.content9 h1 {
+  text-align: center;
+  font-size: 20px;
+}
+.Form {
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+}
+@media screen and (max-width: 480px) {
+  .Form {
+    margin-top: 40px;
+  }
+}
+/* コンタクトフォーム */
+.Form-company {
+  border-top: 1px solid #ddd;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+/* 氏名 */
+.Form-name {
+  border-top: 1px solid #ddd;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+/* 電話 */
+.Form-tel {
+  border-top: 1px solid #ddd;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+/* mail */
+.Form-mail {
+  border-top: 1px solid #ddd;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+/* 問い合わせ */
+.Form-Item {
+  border-top: 1px solid #ddd;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 480px) {
+  .Form-Item {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+  }
+}
+.Form-Item:nth-child(5) {
+  border-bottom: 1px solid #ddd;
+}
+.Form-Item-Label {
+  width: 100%;
+  max-width: 248px;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  font-size: 18px;
+}
+@media screen and (max-width: 480px) {
+  .Form-Item-Label {
+    max-width: inherit;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+  }
+}
+.Form-Item-Label.isMsg {
+  margin-top: 8px;
+  margin-bottom: auto;
+}
+@media screen and (max-width: 480px) {
+  .Form-Item-Label.isMsg {
+    margin-top: 0;
+  }
+}
+.Form-Item-Label-Required {
+  border-radius: 6px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 48px;
+  display: inline-block;
+  text-align: center;
+  background: #5bc8ac;
+  color: #fff;
+  font-size: 14px;
+}
+@media screen and (max-width: 480px) {
+  .Form-Item-Label-Required {
+    border-radius: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    width: 32px;
+    font-size: 10px;
+  }
+}
+.Form-Item-Input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 48px;
+  flex: 1;
+  width: 100%;
+  max-width: 410px;
+  background: #eaedf2;
+  font-size: 18px;
+}
+@media screen and (max-width: 480px) {
+  .Form-Item-Input {
+    margin-left: 0;
+    margin-top: 18px;
+    height: 40px;
+    flex: inherit;
+    font-size: 15px;
+  }
+}
+.Form-Item-Textarea {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 216px;
+  flex: 1;
+  width: 100%;
+  max-width: 410px;
+  background: #eaedf2;
+  font-size: 18px;
+}
+@media screen and (max-width: 480px) {
+  .Form-Item-Textarea {
+    margin-top: 18px;
+    margin-left: 0;
+    height: 200px;
+    flex: inherit;
+    font-size: 15px;
+  }
+}
+.Form-Btn {
+  border-radius: 6px;
+  margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 280px;
+  display: block;
+  letter-spacing: 0.05em;
+  background: #5bc8ac;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+@media screen and (max-width: 480px) {
+  .Form-Btn {
+    margin-top: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 160px;
+    font-size: 16px;
+  }
+}
+
+
+footer {
+  background-color: #707070;
+  text-align: center;
+  padding-top: 30px;
+  height: 50px;
+  align-items: center;
+  margin-top: 140px;
+}
+.Form-Item-Input1 {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 48px;
+  flex: 1;
+  max-width: 410px;
+  font-size: 18px;
+  width: 600px;
+  text-align: center;
+}
+.check-group {
+  line-height: 24px;
+}
+
