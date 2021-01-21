@@ -1,56 +1,77 @@
-# UniGLTF
+# UniHumanoid
 
-[glTF](https://github.com/KhronosGroup/glTF) 2.0 importer and exporter for Unity 5.6 or later
-
-Improved material importer(UniGLTF-1.21) ! 
-
-Below is imported from [DamagedHelmet](https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/DamagedHelmet). Using unity standard shader.
-
-![standard shader](doc/pbr_to_standard.png)
-
-
-![duck](doc/duck.png)
-![animation](doc/animation.gif)
+Unity humanoid utility with bvh importer.
 
 # License
 
-* [MIT license](LICENSE)
+* [MIT](./LICENSE.md)
 
-# See also
+# BVH runtime loader
 
-* https://github.com/ousttrue/UniGLTF/wiki
+```cs
+var context = new BvhImporterContext();
+context.Parse(path);
+context.Load(); // create Skeleton hierarchy and mesh for visualize
+GameObject root = context.Root;
+```
 
-# Sample Models
+## RuntimeLoader
+* Scenes/RuntimeBvhLoader.unity
 
-* https://github.com/KhronosGroup/glTF-Sample-Models
+## RuntimeLoader and PoseTransfer
+Load BVH and transfer pose to any model with humanoid avatar.
 
-## Huge model required Unity2017.3 or later
+* Scenes/PoseTransfer.unity
 
-* [Mesh.IndexFormat(from 2017.3)](https://docs.unity3d.com/ScriptReference/Mesh-indexFormat.html) is required
+![humanpose transfer target](doc/humanpose_transfer_inspector.png)
 
-example. SciFiHelmet(70074vertices)
+![humanpose transfer](doc/humanpose_transfer.png)
 
-![SciFiHelmet](doc/SciFiHelmet.png)
+# Load bvh and create prefab with AnimationClip
 
-# Download
+Drop bvh file to Assets folder.
+Then, AssetPostprocessor import bvh file.
 
-* https://github.com/ousttrue/UniGLTF/releases
+* create a hierarchy prefab 
+* create a humanoid Avatar
+* create a legacy mode AnimationClip
+* create a skinned mesh for preview
 
-# Usage
+![bvh prefab](doc/assets.png)
 
-## Import as prefab
+Instanciate prefab to scene.
 
-* drop gltf folder or glb file into Assets folder
+![bvh gameobject](doc/mesh.png)
 
-![duck_prefab](doc/duck_prefab.png)
+That object can play. 
 
-or
+# BoneMapping
 
-* editor mode
-* menu [UniGLTF] - [Import] 
-* open gltf file(gltf, glb, zip) from out of Asset Folder
+This script help create human avatar from exist GameObject hierarchy.
+First, attach this script to root GameObject that has Animator.
 
-## API
+Next, setup below.
 
-* https://github.com/ousttrue/UniGLTF/wiki/Rutime-API
+* model position is origin
+* model look at +z orientation
+* model root node rotation is Quatenion.identity
+* Set hips bone.
+
+press Guess bone mapping.
+If fail to guess bone mapping, you can set bones manually.
+
+Optional, press Ensure T-Pose.
+Create avatar.
+
+![bvh bone mapping](doc/bvh_bonemapping.png)
+
+These humanoids imported by [UniGLTF](https://github.com/ousttrue/UniGLTF) and created human avatar by BoneMapping. 
+
+![humanoid](doc/humanoid.gif)
+
+# Download BVH files
+
+* https://sites.google.com/a/cgspeed.com/cgspeed/motion-capture
+* http://mocapdata.com/
+* http://www.thetrailerspark.com/download/Mocap/Packed/EYES-JAPAN/BVH/
 
