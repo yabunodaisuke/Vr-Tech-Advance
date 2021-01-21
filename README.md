@@ -1,77 +1,63 @@
-# UniHumanoid
+# UniJSON
+JSON serializer and deserializer and schema utilities for Unity(.Net3.5)
 
-Unity humanoid utility with bvh importer.
+## JSON
 
-# License
+* https://www.json.org/
 
-* [MIT](./LICENSE.md)
+## JSON Schema
 
-# BVH runtime loader
+* http://json-schema.org/
+* https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/schema
+
+## JSON Patch
+
+* http://jsonpatch.com/
+
+## ToDo
+
+* [x] anyOf to enum
+* [ ] string.pattern
+* [x] enum.values
+* [x] array.items
+* [x] object.required
+* [x] object.dependencies
+* [ ] object.additionalProperties
+* [ ] default value
+
+## Example
 
 ```cs
-var context = new BvhImporterContext();
-context.Parse(path);
-context.Load(); // create Skeleton hierarchy and mesh for visualize
-GameObject root = context.Root;
+[Serializable]
+public class glTFSparseIndices
+{
+    [JsonSchema(Minimum = 0)]
+    public int bufferView;
+
+    [JsonSchema(Minimum = 0)]
+    public int byteOffset;
+
+    [JsonSchema(EnumSerializationType = EnumSerializationType.AsInt)]
+    public glComponentType componentType;
+
+    // empty schemas
+    public object extensions;
+    public object extras;
+}
+
+
+[Test]
+public void AccessorSparseIndices()
+{
+    // from JSON schema
+    var path = Path.GetFullPath(Application.dataPath + "/../glTF/specification/2.0/schema");
+    var SchemaDir = new FileSystemAccessor(path);
+    var fromSchema = JsonSchema.ParseFromPath(SchemaDir.Get("accessor.sparse.indices.schema.json"));
+
+    // from C# type definition
+    var fromClass = JsonSchema.FromType<glTFSparseIndices>();
+
+    Assert.AreEqual(fromSchema, fromClass);
+}
 ```
-
-## RuntimeLoader
-* Scenes/RuntimeBvhLoader.unity
-
-## RuntimeLoader and PoseTransfer
-Load BVH and transfer pose to any model with humanoid avatar.
-
-* Scenes/PoseTransfer.unity
-
-![humanpose transfer target](doc/humanpose_transfer_inspector.png)
-
-![humanpose transfer](doc/humanpose_transfer.png)
-
-# Load bvh and create prefab with AnimationClip
-
-Drop bvh file to Assets folder.
-Then, AssetPostprocessor import bvh file.
-
-* create a hierarchy prefab 
-* create a humanoid Avatar
-* create a legacy mode AnimationClip
-* create a skinned mesh for preview
-
-![bvh prefab](doc/assets.png)
-
-Instanciate prefab to scene.
-
-![bvh gameobject](doc/mesh.png)
-
-That object can play. 
-
-# BoneMapping
-
-This script help create human avatar from exist GameObject hierarchy.
-First, attach this script to root GameObject that has Animator.
-
-Next, setup below.
-
-* model position is origin
-* model look at +z orientation
-* model root node rotation is Quatenion.identity
-* Set hips bone.
-
-press Guess bone mapping.
-If fail to guess bone mapping, you can set bones manually.
-
-Optional, press Ensure T-Pose.
-Create avatar.
-
-![bvh bone mapping](doc/bvh_bonemapping.png)
-
-These humanoids imported by [UniGLTF](https://github.com/ousttrue/UniGLTF) and created human avatar by BoneMapping. 
-
-![humanoid](doc/humanoid.gif)
-
-# Download BVH files
-
-* https://sites.google.com/a/cgspeed.com/cgspeed/motion-capture
-* http://mocapdata.com/
-* http://www.thetrailerspark.com/download/Mocap/Packed/EYES-JAPAN/BVH/
 
